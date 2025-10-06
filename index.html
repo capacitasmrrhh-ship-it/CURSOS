@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Capacita</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <section id="menuPrincipal" class="seccion" style="text-align:center;">
+    <h2>ACCESO</h2>
+    <button onclick="mostrarTrabajador()">Trabajadores</button>
+    <button onclick="mostrarLoginEmpresa()">Empresas</button>
+  </section>
+
+  <!-- Sección Trabajador -->
+  <section id="seccionTrabajador" class="seccion" style="display:none">
+    <h2>Ingrese su RUT</h2>
+    <input type="text" id="rutAcceso" placeholder="Ej: 12.345.678-9" />
+    <div>
+      <button class="boton-volver" onclick="volverMenu()">Volver</button>
+      <button onclick="accederTrabajador()">Entrar</button>
+    </div>
+  </section>
+
+  <!-- Mosaico de Cursos -->
+  <section id="mosaicoCursos" class="seccion" style="display:none">
+    <h2>Capacitaciones</h2>
+    <div id="gridCursos">
+      <div class="curso-tile" onclick="verCurso('Prevención de Incendios y Uso de Extintores')">Prevención de Incendios y Uso de Extintores</div>
+      <div class="curso-tile" onclick="verCurso('Manejo Manual de Cargas')">Manejo Manual de Cargas</div>
+      <div class="curso-tile" onclick="verCurso('EPP - Uso y Mantención')">EPP - Uso y Mantención</div>
+    </div>
+    <button class="boton-volver" onclick="volverTrabajador()">Volver</button>
+  </section>
+
+  <!-- Panel Empresa -->
+  <div id="panelEmpresa" style="display:none;">
+    <section class="seccion">
+      <h2>Gestión de Trabajadores</h2>
+      <input type="text" id="nombre" placeholder="Nombre" />
+      <input type="text" id="rut" placeholder="RUT" />
+      <input type="text" id="cargo" placeholder="Cargo" />
+      <button onclick="registrarTrabajador()">Agregar Trabajador</button>
+      <table>
+        <thead><tr><th>RUT</th><th>Nombre</th><th>Cargo</th></tr></thead>
+        <tbody id="tablaTrabajadores"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
+
